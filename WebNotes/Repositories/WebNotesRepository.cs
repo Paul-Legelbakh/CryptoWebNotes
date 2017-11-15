@@ -45,22 +45,20 @@ namespace WebNotes.Repositories
         {
             WebNotesContext database = new WebNotesContext();
             database.Notes.Load();
-            var obj = database.Notes.SingleOrDefault(nt => nt.NoteId == note.NoteId);
-            if (obj != null)
+            var update = database.Notes.SingleOrDefault(nt => nt.NoteId == note.NoteId);
+            if(update != null)
             {
-                obj.NoteId = note.NoteId;
-                obj.CreatedDate = note.CreatedDate;
-                obj.EditedDate = DateTime.Now;
-                obj.Label = note.Label;
-                obj.UserId = note.UserId;
-                obj.Body = note.Body;
-                //database.Notes.Attach(note);
-                //database.Entry(note).State = EntityState.Modified;
+                update.NoteId = note.NoteId;
+                update.CreatedDate = note.CreatedDate;
+                update.EditedDate = DateTime.Now;
+                update.Label = note.Label;
+                update.UserName = note.UserName;
+                update.Body = note.Body;
                 database.SaveChanges();
             }
         }
 
-        public Note GetNote(int id)
+        public Note GetNote(int? id)
         {
             WebNotesContext database = new WebNotesContext();
             database.Notes.Load();
@@ -70,62 +68,62 @@ namespace WebNotes.Repositories
             return findedNote;
         }
 
-        public void CreateUser(User user)
-        {
-            WebNotesContext database = new WebNotesContext();
-            database.Users.Load();
-            if (user != null)
-            {
-                database.Users.Add(user);
-                database.SaveChanges();
-            }
-        }
+        //public void CreateUser(User user)
+        //{
+        //    WebNotesContext database = new WebNotesContext();
+        //    database.Users.Load();
+        //    if (user != null)
+        //    {
+        //        database.Users.Add(user);
+        //        database.SaveChanges();
+        //    }
+        //}
 
-        public void DeleteUser(int id)
-        {
-            WebNotesContext database = new WebNotesContext();
-            database.Users.Load();
-            User userForRemove = database.Users.Find(id);
-            database.Users.Remove(userForRemove);
-            database.SaveChanges();
-        }
+        //public void DeleteUser(int id)
+        //{
+        //    WebNotesContext database = new WebNotesContext();
+        //    database.Users.Load();
+        //    User userForRemove = database.Users.Find(id);
+        //    database.Users.Remove(userForRemove);
+        //    database.SaveChanges();
+        //}
 
-        public List<User> GetUsers()
-        {
-            WebNotesContext database = new WebNotesContext();
-            database.Users.Load();
-            List<User> users = new List<User>();
-            users = database.Users.ToList();
-            database.SaveChanges();
-            return users;
-        }
+        //public List<User> GetUsers()
+        //{
+        //    WebNotesContext database = new WebNotesContext();
+        //    database.Users.Load();
+        //    List<User> users = new List<User>();
+        //    users = database.Users.ToList();
+        //    database.SaveChanges();
+        //    return users;
+        //}
 
-        public void UpdateUser(User user)
-        {
-            WebNotesContext database = new WebNotesContext();
-            database.Users.Load();
-            var obj = database.Users.SingleOrDefault(ur => ur.UserId == user.UserId);
-            if (obj != null)
-            {
-                obj.UserId = user.UserId;
-                obj.NameAuthor = user.NameAuthor;
-                obj.Birthday = user.Birthday;
-                obj.Email = user.Email;
-                obj.Password = user.Password;
-                //database.Users.Attach(user);
-                //database.Entry(user).State = EntityState.Modified;
-                database.SaveChanges();
-            }
-        }
+        //public void UpdateUser(User user)
+        //{
+        //    WebNotesContext database = new WebNotesContext();
+        //    database.Users.Load();
+        //    var obj = database.Users.SingleOrDefault(ur => ur.UserId == user.UserId);
+        //    if (obj != null)
+        //    {
+        //        obj.UserId = user.UserId;
+        //        obj.NameAuthor = user.NameAuthor;
+        //        obj.Birthday = user.Birthday;
+        //        obj.Email = user.Email;
+        //        obj.Password = user.Password;
+        //        //database.Users.Attach(user);
+        //        //database.Entry(user).State = EntityState.Modified;
+        //        database.SaveChanges();
+        //    }
+        //}
 
-        public User GetUser(int id)
-        {
-            WebNotesContext database = new WebNotesContext();
-            database.Users.Load();
-            User findedUser = new User();
-            findedUser = database.Users.Find(id);
-            database.SaveChanges();
-            return findedUser;
-        }
+        //public User GetUser(int id)
+        //{
+        //    WebNotesContext database = new WebNotesContext();
+        //    database.Users.Load();
+        //    User findedUser = new User();
+        //    findedUser = database.Users.Find(id);
+        //    database.SaveChanges();
+        //    return findedUser;
+        //}
     }
 }
