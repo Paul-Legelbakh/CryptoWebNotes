@@ -17,6 +17,7 @@
             {
                 AutomaticMigrationsEnabled = true;
             }
+
             protected override void Seed(WebNotesContext context)
             {
                 //if (context.Users == null)

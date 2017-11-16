@@ -49,7 +49,6 @@ namespace WebNotes.Repositories
             if(update != null)
             {
                 update.NoteId = note.NoteId;
-                update.CreatedDate = note.CreatedDate;
                 update.EditedDate = DateTime.Now;
                 update.Label = note.Label;
                 update.UserName = note.UserName;
