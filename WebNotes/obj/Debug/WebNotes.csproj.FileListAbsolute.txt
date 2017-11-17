@@ -103,7 +103,6 @@ C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\ru\System.Web.WebPages.Ra
 C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\ru\System.Net.Http.Formatting.resources.dll
 C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\ru\System.Web.Http.resources.dll
 C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\ru\System.Web.Http.WebHost.resources.dll
-C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\obj\Debug\WebNotes.csprojResolveAssemblyReference.cache
 C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\obj\Debug\WebNotes.csproj.CoreCompileInputs.cache
 C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\obj\Debug\WebNotes.dll
 C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\obj\Debug\WebNotes.pdb

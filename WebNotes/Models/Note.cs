@@ -7,7 +7,8 @@ namespace WebNotes.Models
 {
     public class Note
     {
-        public Note() { } //constructor for empty elements
+        //constructor for empty elements
+        public Note() { } 
         public Note(int NoteId, DateTime? CreatedDate, DateTime? EditedDate, string UserName, string Label, string Body)
         //constructor with initialization
         {
@@ -18,8 +19,10 @@ namespace WebNotes.Models
             this.Label = Label;
             this.Body = Body;
         }
+        //attributes for create table of database
         public int NoteId { get; set; }
-        public DateTime? CreatedDate { get; set; }
+        //used empty attribute type of date, because exists the conflicts with data type of the SQL database in datetime
+        public DateTime? CreatedDate { get; set; } 
         public DateTime? EditedDate { get; set; }
         public string UserName { get; set; }
         public string Label { get; set; }

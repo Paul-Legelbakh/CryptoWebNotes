@@ -9,6 +9,7 @@ namespace WebNotes.Repositories
 {
     public class WebNotesRepository
     {
+        //method for create a note
         public void CreateNote(Note note)
         {
             WebNotesContext database = new WebNotesContext();
@@ -21,7 +22,7 @@ namespace WebNotes.Repositories
                 database.SaveChanges();
             }
         }
-
+        //method for delete the note
         public void DeleteNote(int id)
         {
             WebNotesContext database = new WebNotesContext();
@@ -30,7 +31,7 @@ namespace WebNotes.Repositories
             database.Notes.Remove(noteForRemove);
             database.SaveChanges();
         }
-
+        //method for get the note's list
         public List<Note> GetNotes()
         {
             WebNotesContext database = new WebNotesContext();
@@ -40,7 +41,7 @@ namespace WebNotes.Repositories
             database.SaveChanges();
             return notes;
         }
-
+        //method for update the note
         public void UpdateNote(Note note)
         {
             WebNotesContext database = new WebNotesContext();
@@ -56,7 +57,7 @@ namespace WebNotes.Repositories
                 database.SaveChanges();
             }
         }
-
+        //method for get the note
         public Note GetNote(int? id)
         {
             WebNotesContext database = new WebNotesContext();

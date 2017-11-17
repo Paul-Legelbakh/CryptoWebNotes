@@ -30,6 +30,7 @@
                 //    context.SaveChanges();
                 //}
 
+                //initialization if database is empty
                 if (context.Notes == null)
                     {
                     List<Note> notes = new List<Note>
@@ -47,13 +48,7 @@
                 Seed(context);
             }
         }
-        // Контекст настроен для использования строки подключения "WebNotesContext" из файла конфигурации  
-        // приложения (App.config или Web.config). По умолчанию эта строка подключения указывает на базу данных 
-        // "WebNotes.Repositories.WebNotesContext" в экземпляре LocalDb. 
-        // 
-        // Если требуется выбрать другую базу данных или поставщик базы данных, измените строку подключения "WebNotesContext" 
-        // в файле конфигурации приложения.
-        
+
         //method of create new connection
         public WebNotesContext() : base("WebNotesDataBase")
         {
@@ -63,11 +58,6 @@
         //add table to database
         //public DbSet<User> Users { get; set; }
         public DbSet<Note> Notes { get; set; }
-
-        // Добавьте DbSet для каждого типа сущности, который требуется включить в модель. Дополнительные сведения 
-        // о настройке и использовании модели Code First см. в статье http://go.microsoft.com/fwlink/?LinkId=390109.
-
-        // public virtual DbSet<MyEntity> MyEntities { get; set; }
     }
 
 }
