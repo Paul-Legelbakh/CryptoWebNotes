@@ -109,3 +109,4 @@ C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\obj\Debug\WebNotes.pdb
 C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\WebNotes.dll.config
 C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\WebNotes.dll
 C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\WebNotes.pdb
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\obj\Debug\WebNotes.csprojResolveAssemblyReference.cache
