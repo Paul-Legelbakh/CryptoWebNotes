@@ -113,3 +113,9 @@ C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\obj\Debug\WebNotes.csprojReso
 C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\WebNotesDataBase.dll
 C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\WebNotesDataBase.pdb
 C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\WebNotesDataBase.dll.config
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\ru\EntityFramework.resources.dll
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\PagedList.dll
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\PagedList.Mvc.dll
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\PagedList.xml
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotes\bin\PagedList.Mvc.xml

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNotes", "WebNotes\WebNot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNotesDataBase", "WebNotesDataBase\WebNotesDataBase.csproj", "{C41C2571-8A64-479E-98E7-BCD798A28E43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNotesTests", "WebNotesTests\WebNotesTests.csproj", "{6F2C14C4-4791-484F-B104-950EDD9E4B40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C41C2571-8A64-479E-98E7-BCD798A28E43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C41C2571-8A64-479E-98E7-BCD798A28E43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C41C2571-8A64-479E-98E7-BCD798A28E43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F2C14C4-4791-484F-B104-950EDD9E4B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F2C14C4-4791-484F-B104-950EDD9E4B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F2C14C4-4791-484F-B104-950EDD9E4B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F2C14C4-4791-484F-B104-950EDD9E4B40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
