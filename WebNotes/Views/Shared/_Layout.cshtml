@@ -8,11 +8,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebNotes – приложение ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>WebNotes – ASP.NET</title>
 </head>
-<body>
+<body background="~/Content/background.jpg">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-collapse collapse">
@@ -31,6 +29,8 @@
             <p>&copy; @DateTime.Now.Year – (c) Paul Legelbakh</p>
         </footer>
     </div>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
