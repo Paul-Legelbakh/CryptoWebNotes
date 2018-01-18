@@ -26,7 +26,9 @@ namespace WebNotes
             {
                 Mapper.Initialize(cfg =>
                 {
-                    cfg.CreateMap<Note, IndexNoteViewModel>();
+                    cfg.CreateMap<Note, IndexNoteViewModel>()
+                        .ForMember("NameAuthor", opt => opt.MapFrom(n => n.User.NameAuthor))
+                        .ForMember("Created_Edited", opt => opt.MapFrom(d => d.CreatedDate + " " + d.EditedDate));
                     cfg.CreateMap<CreateNoteViewModel, Note>();
                     cfg.CreateMap<Note, CreateNoteViewModel>();
                     cfg.CreateMap<User, EditUserViewModel>();
