@@ -1,0 +1,35 @@
+﻿@model WebNotesDataBase.ViewModels.RegisterUserViewModel
+
+    <div>
+        <h2>User</h2>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NameAuthor)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NameAuthor)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Birthday)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Birthday)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }, new { @class = "btn btn-warning" }) |
+        @Html.ActionLink("Back to List", "../Notes/Index", null, new { @class = "btn btn-info" })
+    </p>

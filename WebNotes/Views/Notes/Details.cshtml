@@ -1,0 +1,46 @@
+﻿@model WebNotesDataBase.ViewModels.IndexNoteViewModel
+
+    <div>
+        <h2>Note</h2>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Created_Edited)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Created_Edited)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NameAuthor)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NameAuthor)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Label)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Label)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Body)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Body)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.NoteId }, new { @class = "btn btn-warning" }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.NoteId }, new { @class = "btn btn-danger" }) |
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+    </p>
+

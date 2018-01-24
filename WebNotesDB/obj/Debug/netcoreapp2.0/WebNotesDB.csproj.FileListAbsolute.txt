@@ -1,0 +1,8 @@
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotesDB\bin\Debug\netcoreapp2.0\WebNotesDB.deps.json
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotesDB\bin\Debug\netcoreapp2.0\WebNotesDB.runtimeconfig.json
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotesDB\bin\Debug\netcoreapp2.0\WebNotesDB.runtimeconfig.dev.json
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotesDB\bin\Debug\netcoreapp2.0\WebNotesDB.dll
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotesDB\obj\Debug\netcoreapp2.0\WebNotesDB.csprojResolveAssemblyReference.cache
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotesDB\obj\Debug\netcoreapp2.0\WebNotesDB.csproj.CoreCompileInputs.cache
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotesDB\obj\Debug\netcoreapp2.0\WebNotesDB.AssemblyInfoInputs.cache
+C:\Users\Paul\Documents\Projects\WebNotes\WebNotesDB\obj\Debug\netcoreapp2.0\WebNotesDB.AssemblyInfo.cs
