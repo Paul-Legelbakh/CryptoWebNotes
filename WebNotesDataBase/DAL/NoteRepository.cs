@@ -33,13 +33,13 @@ namespace WebNotesDataBase.DAL
         //    return note;
         //}
 
-        public List<Note> GetNotesByUserName(string nameAuthor)
+        public List<Note> GetListByUserID(int userId)
         {
             List<Note> notes = unitOfWork.EntityRepository.Get().ToList();
             List<Note> finded = new List<Note>();
             foreach (Note note in notes)
             {
-                if (note.User.NameAuthor == nameAuthor) finded.Add(note);
+                if (note.User.UserId == userId) finded.Add(note);
             }
             return finded;
         }
