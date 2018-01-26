@@ -62,7 +62,11 @@ namespace WebNotes.Controllers
                 Response.SetCookie(cookie);
                 return RedirectToAction("../Notes/Index");
             }
-            return View("../Shared/Error");
+            else
+            {
+                ViewBag.ErrorLogin = "Not registered!";
+                return View("Login");
+            }
         }
 
         // POST: Users/Create
@@ -78,7 +82,10 @@ namespace WebNotes.Controllers
                 userRepository.Save();
                 return RedirectToAction("Login");
             }
-            return View("../Shared/Error");
+            else
+            {
+                return View("../Shared/Error");
+            }
         }
 
         [HttpGet]
@@ -145,6 +152,5 @@ namespace WebNotes.Controllers
             }
             return View(model);
         }
-
     }
 }

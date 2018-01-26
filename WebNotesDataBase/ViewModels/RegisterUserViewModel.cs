@@ -10,15 +10,26 @@ namespace WebNotesDataBase.ViewModels
     public class RegisterUserViewModel
     {
         public int UserId { get; set; }
+
         [Required]
-        [StringLength(30)]
+        [StringLength(30, MinimumLength = 4)]
         public string NameAuthor { get; set; }
+
         public DateTime Birthday { get; set; }
+
         [Required]
-        [StringLength(40)]
+        [StringLength(40, MinimumLength = 6)]
         public string Email { get; set; }
+
         [Required]
-        [StringLength(20)]
+        [Display(Name = "Password")]
+        [StringLength(20, MinimumLength = 8)]
         public string Pass { get; set; }
+
+        [Required]
+        [Display(Name = "Password confirm")]
+        [Compare("Pass", ErrorMessage = "Passwords don't match")]
+        [StringLength(20, MinimumLength = 8)]
+        public string PassConfirm { get; set; }
     }
 }

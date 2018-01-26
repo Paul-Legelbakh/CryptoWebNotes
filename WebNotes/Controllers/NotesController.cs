@@ -35,9 +35,11 @@ namespace WebNotes.Controllers
         {
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            var notes = Mapper.Map<IEnumerable<Note>, List<IndexNoteViewModel>>(noteRepository.Get());
             if (Request.Cookies["login"] != null)
+            {
+                var notes = Mapper.Map<IEnumerable<Note>, List<IndexNoteViewModel>>(uowNote.GetNotesByUserName(userRepository.GetByID(Convert.ToInt32(Request.Cookies["login"].Value)).NameAuthor));
                 return View(notes.ToPagedList(pageNumber, pageSize));
+            }
             else return RedirectToAction("../Users/Login");
         }
 
