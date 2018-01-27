@@ -64,7 +64,7 @@ namespace WebNotes.Controllers
             }
             else
             {
-                ViewBag.ErrorLogin = "Not registered!";
+                ViewBag.ErrorLogin = auth == null ? "Not registered" : "Wrong password";
                 return View("Login");
             }
         }
