@@ -62,7 +62,7 @@
                         </table>
                     </div>
                     <div class="col-md-12">
-                        @Html.PasswordFor(model => model.Pass, htmlAttributes: new { @class = "form-control", @id = "print_hash" })
+                        @Html.PasswordFor(model => model.Pass, htmlAttributes: new { @class = "form-control", @type = "hidden", @id = "print_hash" })
                         @Html.ValidationMessageFor(model => model.Pass, "", new { @class = "text-danger" })
                         <div class="trash"></div>
                     </div>
