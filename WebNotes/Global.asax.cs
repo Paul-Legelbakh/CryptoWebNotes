@@ -10,6 +10,9 @@ using System.Data.Entity;
 using WebNotesDataBase.Models;
 using AutoMapper;
 using WebNotesDataBase.ViewModels;
+using System.Security.Cryptography;
+using System.IO;
+using System.Text;
 
 namespace WebNotes
 {

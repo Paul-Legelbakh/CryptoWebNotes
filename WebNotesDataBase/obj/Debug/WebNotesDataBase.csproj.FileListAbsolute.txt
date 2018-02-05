@@ -431,3 +431,6 @@ C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.cs
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.csproj.CoreCompileInputs.cache
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.dll
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.pdb
+C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Migrations.MigrateWebNotesDataBase2.resources
+C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Migrations.MigrateWebNotesDataBase7.resources
+C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Migrations.WebNotesDataBaseMigration.resources

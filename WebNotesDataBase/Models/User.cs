@@ -14,16 +14,16 @@ namespace WebNotesDataBase.Models
         }
         [Key]
         public int UserId { get; set; }
-        [Required]
-        [StringLength(30)]
+
         public string NameAuthor { get; set; }
+
         public DateTime Birthday { get; set; }
-        [Required]
-        [StringLength(40)]
+
+        [StringLength(1000)]
         public string Email { get; set; }
-        [Required]
-        [StringLength(20)]
+
         public string Pass { get; set; }
+
         public ICollection<Note> Notes { get; set; }
     }
 }

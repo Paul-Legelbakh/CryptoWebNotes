@@ -34,19 +34,54 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.Pass, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.PasswordFor(model => model.Pass, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Pass, "", new { @class = "text-danger" })
+
+        <div>
+            <div class="row">
+                <div class="g_auth col-md-10">
+                    <img id="sigil_O" class="sigil" src="~/Content/Tetris_O.svg" state="O" />
+                    <img id="sigil_S" class="sigil" src="~/Content/Tetris_S.svg" state="S" />
+                    <img id="sigil_Z" class="sigil" src="~/Content/Tetris_Z.svg" state="Z" />
+                    <img id="sigil_L" class="sigil" src="~/Content/Tetris_L.svg" state="L" />
+                    <img id="sigil_J" class="sigil" src="~/Content/Tetris_J.svg" state="J" />
+                    <img id="sigil_T" class="sigil" src="~/Content/Tetris_T.svg" state="T" />
+                    <img id="sigil_I" class="sigil" src="~/Content/Tetris_I.svg" state="I" />
+                    <div class="desk-block col-md-12">
+                        <table class="desk">
+                            <tbody>
+                                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-12">
+                        @Html.PasswordFor(model => model.Pass, htmlAttributes: new { @class = "form-control", @id = "print_hash" })
+                        @Html.ValidationMessageFor(model => model.Pass, "", new { @class = "text-danger" })
+                        <div class="trash"></div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <script src="@Url.Content("~/Scripts/tetromino.js")" type="text/javascript"></script>
+
     </div>
 
-    <div class="form-group">
+    @*<div class="form-group">
         @Html.LabelFor(model => model.PassConfirm, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.PasswordFor(model => model.PassConfirm, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.PassConfirm, "", new { @class = "text-danger" })
         </div>
-    </div>
+    </div>*@
+
+    <div class="text-danger" style="font-size:20px; margin-left:25%;">@ViewBag.ErrorRegistration</div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
@@ -60,3 +95,4 @@
         @Html.ActionLink("Back to Main", "../Home/Index", null, new { @class = "btn btn-info" })
     </div>
 @Scripts.Render("~/bundles/jqueryval")
+

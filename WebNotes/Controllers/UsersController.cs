@@ -84,7 +84,8 @@ namespace WebNotes.Controllers
             }
             else
             {
-                return View("../Shared/Error");
+                ViewBag.ErrorRegistration = "This email is already registered";
+                return View("Registration");
             }
         }
 

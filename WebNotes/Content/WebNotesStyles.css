@@ -3,3 +3,39 @@
     background-size:100%;
     background-size:cover;
 }
+
+.g_auth {
+    max-width: calc(40px * 11);
+    display: block;
+}
+
+table.desk {
+    border-collapse: collapse;
+}
+
+table.desk tr {
+    height: 40px;
+    border-spacing: 0;
+}
+
+table.desk td {
+    width: 40px;
+    height: 40px;
+    max-height: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    min-width: 40px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid grey;
+}
+
+.trash {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+}
+
+div.desk-block {
+    width: fit-content;
+}
