@@ -450,3 +450,9 @@ C:\Users\Paul\VSProjects\WebNotes\WebNotes\obj\Debug\WebNotes.csprojResolveAssem
 C:\Users\Paul\VSProjects\WebNotes\WebNotes\obj\Debug\WebNotes.csproj.CoreCompileInputs.cache
 C:\Users\Paul\VSProjects\WebNotes\WebNotes\obj\Debug\WebNotes.dll
 C:\Users\Paul\VSProjects\WebNotes\WebNotes\obj\Debug\WebNotes.pdb
+C:\Users\Paul\VSProjects\WebNotes\WebNotes\bin\Bumblebee.dll
+C:\Users\Paul\VSProjects\WebNotes\WebNotes\bin\WebDriver.dll
+C:\Users\Paul\VSProjects\WebNotes\WebNotes\bin\WebDriver.Support.dll
+C:\Users\Paul\VSProjects\WebNotes\WebNotes\bin\Bumblebee.xml
+C:\Users\Paul\VSProjects\WebNotes\WebNotes\bin\WebDriver.xml
+C:\Users\Paul\VSProjects\WebNotes\WebNotes\bin\WebDriver.Support.xml
