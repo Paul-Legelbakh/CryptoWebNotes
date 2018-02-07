@@ -167,7 +167,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Cryptography\Encrypting.cs" />
+    <Compile Include="Cryptography\Cryptography.cs" />
     <Compile Include="DAL\GenericRepository.cs" />
     <Compile Include="DAL\NoteRepository.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />

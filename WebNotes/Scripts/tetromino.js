@@ -95,7 +95,7 @@ class DeskData {
         data += cell;
       });
     });
-    return keccak512(data);
+    return keccak256(data);
   }
   print() {
     this.sheet.forEach(row => {
