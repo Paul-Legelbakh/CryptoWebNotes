@@ -145,7 +145,7 @@ const Desk = {
     count_x: 0,
     count_y: 0
   },
-  round: (x, y, offset) => {
+  round: (x, y, block, vertical, offset) => {
     x -= offset.left;
     y -= offset.top;
     if(x < 0) x = 0;
@@ -154,9 +154,11 @@ const Desk = {
     let cell_offset_y = (Desk.height / Desk.cell.count_y);
     let cell_x = Math.round(x / cell_offset_x);
     let cell_y = Math.round(y / cell_offset_y);
+    x = cell_x * Desk.cell.width + offset.left;
+    y = cell_y * Desk.cell.height + offset.top;
     return { 
-      x: cell_x * Desk.cell.width + offset.left,
-      y: cell_y * Desk.cell.height + offset.top,
+      x: x,
+      y: y,
       cell_x: cell_x,
       cell_y: cell_y
     };
@@ -194,7 +196,6 @@ $(() => {
   $('.g_auth .sigil').draggable({
     helper: 'clone',
     cursor: 'move',
-    tolerance: 'fit',
     scope: 'sigil',
     start: (event, ui) => {
       ui.helper.css({"z-index": 1001});
@@ -205,15 +206,17 @@ $(() => {
 
   $('.g_auth table.desk').droppable({
     scope: 'sigil',
+    tolerance: 'fit',
     drop: (event, ui) => {
       let sigil = ui.draggable.hasClass('placed') ? ui.draggable : ui.draggable.clone();
+      let rotation = sigil.attr("rotation");
       let position = Desk.round(
         ui.offset.left, 
         ui.offset.top,
+        BlockImages[sigil.attr('state')],
+        (rotation % 2) != 0,
         $('.g_auth table.desk').offset()
       );
-      let rotation = sigil.attr("rotation");
-      console.log(position);
       if(!rotation) rotation = 0;
       data.insert(position, {
         name: sigil.attr('state'),
@@ -231,7 +234,6 @@ $(() => {
         .draggable({
         cursor: 'move',
         scope: 'sigil',
-        tolerance: 'fit',
         start: (event, ui) => {
           ui.helper.css({"z-index": 1001});
           let rotation = ui.helper.attr("rotation");
@@ -249,7 +251,6 @@ $(() => {
     scope: 'sigil',
     drop: (event, ui) => {
       if(ui.draggable.hasClass('placed')) {
-        ui.draggable.remove();
         let rotation = ui.draggable.attr("rotation");
           if(!rotation) rotation = 0;
           data.remove(ui.draggable.data("position"), {
@@ -257,6 +258,7 @@ $(() => {
             offset: States[ui.draggable.attr('state')][rotation]
           });
           $('textarea#print_hash').val(data.encrypt());
+          ui.draggable.remove();
       }
     }
   }).click((event) => {
