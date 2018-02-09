@@ -34,7 +34,7 @@
             <td width="35%">
                 @Html.DisplayFor(modelItem => item.Body)
             </td>
-            <td>
+            <td width="20%">
                 @Html.ActionLink("Edit", "Edit", new { id = item.NoteId }, new { @class = "btn btn-warning" }) |
                 @Html.ActionLink("Details", "Details", new { id = item.NoteId }, new { @class = "btn btn-info" }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.NoteId }, new { @class = "btn btn-danger" })

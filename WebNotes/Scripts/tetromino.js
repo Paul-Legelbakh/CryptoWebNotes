@@ -74,6 +74,7 @@ class DeskData {
     state.forEach(offset => {
       let cell_x = x + offset[0];
       let cell_y = y + offset[1];
+      result = result && cell_y < this.sheet.length && cell_x < this.sheet[cell_y].length;
       result = result && this.sheet[cell_y][cell_x] == null;
     });
     return result;
@@ -206,7 +207,6 @@ $(() => {
 
   $('.g_auth table.desk').droppable({
     scope: 'sigil',
-    tolerance: 'fit',
     drop: (event, ui) => {
       let sigil = ui.draggable.hasClass('placed') ? ui.draggable : ui.draggable.clone();
       let rotation = sigil.attr("rotation");
