@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 let States = {
   I: [
     [[0, 0], [1, 0], [2, 0], [3, 0]],
@@ -36,6 +36,20 @@ let States = {
 }
 
 const DEFAULT_SALT = "Lorem Ipsum";
+const SALT_INPUT_POINTER = '.form-horizontal input[type=email]';
+const TABLE_DESK_CLASS = 'table.desk';
+const WORK_AREA = '.g_auth';
+const TABLE_POINTER = WORK_AREA + ' ' + TABLE_DESK_CLASS;
+const SIGIL_IMAGE_CLASS = '.sigil';
+const SIGIL_POINTER = WORK_AREA + ' ' + SIGIL_IMAGE_CLASS;
+const SIGIL_POSITION_ATTRIBUTE = 'position';
+const SIGIL_ROTATION_ATTRIBUTE = 'retation';
+const SIGIL_STATE_ATTRIBUTE = 'state';
+const PLACED_CLASS = '.placed';
+const PLACED = 'placed';
+const SIGIL_ID_PREFIX = '#sigil_';
+const OUTPUT_POINTER = 'textarea#print_hash';
+const TRASH_POINTER = WORK_AREA + ' ' + '.trash';
 
 class DeskData {
   constructor(sizeX, sizeY) {
@@ -74,7 +88,6 @@ class DeskData {
     state.forEach(offset => {
       let cell_x = x + offset[0];
       let cell_y = y + offset[1];
-      result = result && cell_y < this.sheet.length && cell_x < this.sheet[cell_y].length;
       result = result && this.sheet[cell_y][cell_x] == null;
     });
     return result;
@@ -107,8 +120,8 @@ class DeskData {
 
 function rotate(jobject) {
   let sigil = $(jobject);
-    let rotation = sigil.attr("rotation");
-    let state = sigil.attr('state');
+    let rotation = sigil.attr(SIGIL_ROTATION_ATTRIBUTE);
+    let state = sigil.attr(SIGIL_STATE_ATTRIBUTE);
     if(rotation) {
       rotation = ++rotation % States[state].length;
     }
@@ -117,8 +130,8 @@ function rotate(jobject) {
     }
     let translate = '';
     if((rotation % 2) != 0) {
-      let vtr_x = BlockImages[sigil.attr('state')].vtr_x;
-      let vtr_y = BlockImages[sigil.attr('state')].vtr_y;
+      let vtr_x = BlockImages[state].vtr_x;
+      let vtr_y = BlockImages[state].vtr_y;
       if(rotation == 3) {
         vtr_x = -vtr_x;
         vtr_y = -vtr_y;
@@ -132,7 +145,7 @@ function rotate(jobject) {
       '-ms-transform' : 'rotate('+ degrees +'deg) ' + translate,
       'transform' : 'rotate('+ degrees +'deg) ' + translate
     });
-    sigil.attr("rotation", rotation);
+    sigil.attr(SIGIL_ROTATION_ATTRIBUTE, rotation);
 }
 
 const Types = Object.keys(States);
@@ -179,7 +192,7 @@ const BlockImages = {
 // JQuery UI dependencies code
 
 $(() => {
-  let desk = $('.g_auth table.desk');
+  let desk = $(TABLE_POINTER);
   Desk.width = desk.width();
   Desk.height = desk.height();
   Desk.cell.count_x = desk.children('tbody').children('tr:first').children().length;
@@ -187,14 +200,18 @@ $(() => {
   Desk.cell.width = Desk.width / Desk.cell.count_x;
   Desk.cell.height = Desk.height / Desk.cell.count_y;
   for(let block in BlockImages) {
-    $('#sigil_' + block).css({
+    $(SIGIL_ID_PREFIX + block).css({
       width: Desk.cell.width * BlockImages[block].width,
       height: Desk.cell.height * BlockImages[block].height
     });
   }
   let data = new DeskData(Desk.cell.count_x, Desk.cell.count_y);
 
-  $('.g_auth .sigil').draggable({
+  let get_salt = () => {
+      return $(SALT_INPUT_POINTER).val();
+  }
+
+  $(SIGIL_POINTER).draggable({
     helper: 'clone',
     cursor: 'move',
     scope: 'sigil',
@@ -205,65 +222,66 @@ $(() => {
     rotate(event.target);
   });
 
-  $('.g_auth table.desk').droppable({
+  $(TABLE_POINTER).droppable({
     scope: 'sigil',
+    tolerance: 'fit',
     drop: (event, ui) => {
-      let sigil = ui.draggable.hasClass('placed') ? ui.draggable : ui.draggable.clone();
-      let rotation = sigil.attr("rotation");
+      let sigil = ui.draggable.hasClass(PLACED) ? ui.draggable : ui.draggable.clone();
+      let rotation = sigil.attr(SIGIL_ROTATION_ATTRIBUTE);
       let position = Desk.round(
         ui.offset.left, 
         ui.offset.top,
-        BlockImages[sigil.attr('state')],
+        BlockImages[sigil.attr(SIGIL_STATE_ATTRIBUTE)],
         (rotation % 2) != 0,
-        $('.g_auth table.desk').offset()
+        $(TABLE_POINTER).offset()
       );
       if(!rotation) rotation = 0;
       data.insert(position, {
-        name: sigil.attr('state'),
-        offset: States[sigil.attr('state')][rotation]
+        name: sigil.attr(SIGIL_STATE_ATTRIBUTE),
+        offset: States[sigil.attr(SIGIL_STATE_ATTRIBUTE)][rotation]
       });
-      $('textarea#print_hash').val(data.encrypt());
+      $(OUTPUT_POINTER).val(data.encrypt(get_salt()));
       sigil.css({
         top: position.y,
         left: position.x,
         position: 'absolute',
         "z-index": 1000
-      }).addClass("placed")
-        .appendTo('.g_auth .desk')
-        .data("position", position)
+      }).addClass(PLACED)
+        .appendTo(TABLE_POINTER)
+        .data(SIGIL_POSITION_ATTRIBUTE, position)
         .draggable({
         cursor: 'move',
         scope: 'sigil',
         start: (event, ui) => {
           ui.helper.css({"z-index": 1001});
-          let rotation = ui.helper.attr("rotation");
+          let rotation = ui.helper.attr(SIGIL_ROTATION_ATTRIBUTE);
           if(!rotation) rotation = 0;
-          data.remove(ui.helper.data("position"), {
-            name: ui.helper.attr('state'),
-            offset: States[ui.helper.attr('state')][rotation]
+          data.remove(ui.helper.data(SIGIL_POSITION_ATTRIBUTE), {
+            name: ui.helper.attr(SIGIL_STATE_ATTRIBUTE),
+            offset: States[ui.helper.attr(SIGIL_STATE_ATTRIBUTE)][rotation]
           });
-          $('textarea#print_hash').val(data.encrypt());
+          $(OUTPUT_POINTER).val(data.encrypt(get_salt()));
         }
       });
     }
   });
-  $('.g_auth .trash').droppable({
+  $(TRASH_POINTER).droppable({
     scope: 'sigil',
     drop: (event, ui) => {
-      if(ui.draggable.hasClass('placed')) {
-        let rotation = ui.draggable.attr("rotation");
+      if(ui.draggable.hasClass(PLACED)) {
+        let rotation = ui.draggable.attr(SIGIL_ROTATION_ATTRIBUTE);
           if(!rotation) rotation = 0;
-          data.remove(ui.draggable.data("position"), {
-            name: ui.draggable.attr('state'),
-            offset: States[ui.draggable.attr('state')][rotation]
+          data.remove(ui.draggable.data(SIGIL_POSITION_ATTRIBUTE), {
+            name: ui.draggable.attr(SIGIL_STATE_ATTRIBUTE),
+            offset: States[ui.draggable.attr(SIGIL_STATE_ATTRIBUTE)][rotation]
           });
-          $('textarea#print_hash').val(data.encrypt());
+          $(OUTPUT_POINTER).val(data.encrypt(get_salt()));
           ui.draggable.remove();
       }
     }
   }).click((event) => {
-    $('.placed').remove();
+    $(PLACED_CLASS).remove();
     data.clear();
-    $('textarea#print_hash').val(data.encrypt());
+    $(OUTPUT_POINTER).val(data.encrypt(get_salt()));
   });
 });

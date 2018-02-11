@@ -15,7 +15,6 @@ namespace WebNotesDataBase.ViewModels
         public string NameAuthor { get; set; }
         public DateTime Birthday { get; set; }
         [Required]
-        [StringLength(20)]
         public string Pass { get; set; }
     }
 }
