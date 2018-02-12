@@ -65,6 +65,9 @@ namespace WebNotes.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
                 note = Mapper.Map<Note, IndexNoteViewModel>(noteRepository.GetByID(id));
+                note.Label = EncryptDecrypt.DecryptData(note.Label, usr.Pass);
+                note.Body = EncryptDecrypt.DecryptData(note.Body, usr.Pass);
+                note.NameAuthor = EncryptDecrypt.DecryptData(note.NameAuthor, usr.Pass);
                 if (note == null)
                 {
                     return HttpNotFound();
