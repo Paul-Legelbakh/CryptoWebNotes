@@ -25,11 +25,5 @@ namespace WebNotesDataBase.ViewModels
         [Display(Name = "Password")]
         [StringLength(1000, MinimumLength = 8)]
         public string Pass { get; set; }
-
-        //[Required]
-        //[Display(Name = "Password confirm")]
-        //[Compare("Pass", ErrorMessage = "Passwords don't match")]
-        //[StringLength(20, MinimumLength = 8)]
-        //public string PassConfirm { get; set; }
     }
 }

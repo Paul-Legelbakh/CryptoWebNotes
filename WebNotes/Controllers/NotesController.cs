@@ -128,16 +128,16 @@ namespace WebNotes.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
                 note = Mapper.Map<Note, CreateNoteViewModel>(noteRepository.GetByID(id));
-                note.Label = EncryptDecrypt.DecryptData(note.Label, usr.Pass);
-                note.Body = EncryptDecrypt.DecryptData(note.Body, usr.Pass);
                 if (note == null)
                 {
                     return HttpNotFound();
                 }
+                note.Label = EncryptDecrypt.DecryptData(note.Label, usr.Pass);
+                note.Body = EncryptDecrypt.DecryptData(note.Body, usr.Pass);
             }
             else
             {
-                ViewBag.ErrorLogin = "You are not autorized!";
+                ViewBag.ErrorLogin = "You are not authorized!";
                 return View("../Users/Login");
             }
             return View(note);
@@ -156,8 +156,8 @@ namespace WebNotes.Controllers
                     Note note = Mapper.Map<CreateNoteViewModel, Note>(model);
                     Note nt = noteRepository.GetByID(note.NoteId);
                     nt.EditedDate = DateTime.Now;
-                    nt.Label = EncryptDecrypt.DecryptData(note.Label, usr.Pass);
-                    nt.Body = EncryptDecrypt.DecryptData(note.Body, usr.Pass);
+                    nt.Label = EncryptDecrypt.EncryptData(note.Label, usr.Pass);
+                    nt.Body = EncryptDecrypt.EncryptData(note.Body, usr.Pass);
                     noteRepository.Update(nt);
                     noteRepository.Save();
                     return RedirectToAction("Index");
