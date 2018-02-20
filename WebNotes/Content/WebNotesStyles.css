@@ -9,6 +9,17 @@
     display: block;
 }
 
+.g_auth .auth-left-block {
+    width: fit-content;
+    display: inline-block;
+}
+
+.g_auth .auth-right-block {
+    max-width: 50%;
+    display: inline-block;
+    float: right !important;
+}
+
 table.desk {
     border-collapse: collapse;
 }
