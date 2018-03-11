@@ -50,3 +50,8 @@ table.desk td {
 div.desk-block {
     width: fit-content;
 }
+
+.horsig {
+    margin: 10px;
+    float: left;
+}

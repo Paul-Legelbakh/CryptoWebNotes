@@ -41,20 +41,20 @@
                             </div>
                         </div>
                         <div class="auth-right-block">
-                            <img id="sigil_O" class="sigil" src="~/Content/Tetris_O.svg" state="O" />
-                            <img id="sigil_S" class="sigil" src="~/Content/Tetris_S.svg" state="S" />
-                            <img id="sigil_Z" class="sigil" src="~/Content/Tetris_Z.svg" state="Z" />
-                            <img id="sigil_L" class="sigil" src="~/Content/Tetris_L.svg" state="L" />
-                            <img id="sigil_J" class="sigil" src="~/Content/Tetris_J.svg" state="J" />
-                            <img id="sigil_T" class="sigil" src="~/Content/Tetris_T.svg" state="T" />
-                            <img id="sigil_I" class="sigil" src="~/Content/Tetris_I.svg" state="I" />
+                            <div class="horsig"><img id="sigil_O" class="sigil" src="~/Content/Tetris_O.svg" state="O" /></div>
+                            <div class="horsig"><img id="sigil_S" class="sigil" src="~/Content/Tetris_S.svg" state="S" /></div>
+                            <div class="horsig"><img id="sigil_Z" class="sigil" src="~/Content/Tetris_Z.svg" state="Z" /></div>
+                            <div class="horsig"><img id="sigil_L" class="sigil" src="~/Content/Tetris_L.svg" state="L" /></div>
+                            <div class="horsig"><img id="sigil_J" class="sigil" src="~/Content/Tetris_J.svg" state="J" /></div>
+                            <div class="horsig"><img id="sigil_T" class="sigil" src="~/Content/Tetris_T.svg" state="T" /></div>
+                            <div class="horsig"><img id="sigil_I" class="sigil" src="~/Content/Tetris_I.svg" state="I" /></div>
+                            <div class="trash horsig" style="border-radius: 10px;"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             @Html.TextAreaFor(model => model.Pass, htmlAttributes: new { @class = "form-control", @style = "display:none;", @rows = 5, @cols = 60, id = "print_hash" })
                             @*@Html.PasswordFor(model => model.Pass, htmlAttributes: new { @class = "form-control", id="print_hash" })*@
-                            <div class="trash"></div>
                         </div>
                     </div>
                 </div>

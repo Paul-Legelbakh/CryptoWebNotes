@@ -11,10 +11,11 @@ namespace WebNotesDataBase.ViewModels
     {
         public int UserId { get; set; }
         [Required]
-        [StringLength(30)]
+        [StringLength(30, MinimumLength = 4)]
         public string NameAuthor { get; set; }
         public DateTime Birthday { get; set; }
         [Required]
+        [Display(Name = "Password")]
         public string Pass { get; set; }
     }
 }
