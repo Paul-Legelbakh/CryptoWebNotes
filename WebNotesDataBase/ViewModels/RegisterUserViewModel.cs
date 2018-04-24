@@ -13,7 +13,11 @@ namespace WebNotesDataBase.ViewModels
 
         [Required]
         [StringLength(30, MinimumLength = 4)]
-        public string NameAuthor { get; set; }
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(30, MinimumLength = 4)]
+        public string LastName { get; set; }
 
         public DateTime Birthday { get; set; }
 

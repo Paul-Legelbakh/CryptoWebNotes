@@ -16,7 +16,7 @@ namespace WebNotesTests.Controllers
             NotesController controller = new NotesController();
 
             // Act
-            RedirectToRouteResult result = controller.Index() as RedirectToRouteResult;
+            RedirectToRouteResult result = controller.Index(1) as RedirectToRouteResult;
 
             // Assert
             Assert.IsNotNull(result);

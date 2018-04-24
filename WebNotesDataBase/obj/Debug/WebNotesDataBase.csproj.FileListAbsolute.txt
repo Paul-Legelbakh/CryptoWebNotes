@@ -410,8 +410,6 @@ C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\bin\Microsoft.AI.DependencyCo
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\bin\Microsoft.AI.Web.xml
-C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\bin\ru\EntityFramework.resources.dll
-C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\bin\ru\EntityFramework.SqlServer.resources.dll
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\bin\ru\System.Web.Helpers.resources.dll
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\bin\ru\System.Web.Mvc.resources.dll
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\bin\ru\System.Web.Optimization.resources.dll
@@ -419,6 +417,7 @@ C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\bin\ru\System.Web.Razor.resou
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\bin\ru\System.Web.WebPages.resources.dll
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\bin\ru\System.Web.WebPages.Deployment.resources.dll
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\bin\ru\System.Web.WebPages.Razor.resources.dll
+C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.csprojResolveAssemblyReference.cache
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Migrations.InitialCreate.resources
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Migrations.MigrateWebNotesDataBase.resources
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Migrations.MigrateWebNotesDataBase1.resources
@@ -433,4 +432,5 @@ C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.cs
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.csproj.CoreCompileInputs.cache
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.dll
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.pdb
-C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.csprojResolveAssemblyReference.cache
+C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Migrations.MigrateWebNotesDataBase8.resources
+C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Migrations.MigrateWebNotesDataBase9.resources

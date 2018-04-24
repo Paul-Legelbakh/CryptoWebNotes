@@ -1,28 +1,27 @@
 ﻿@model PagedList.IPagedList<WebNotesDataBase.ViewModels.IndexNoteViewModel>
 @*@model WebNotesDataBase.DAL.NotesModel*@
-    @using PagedList.Mvc;
+@using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css">
-
-<br/>
-    <p>
-        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary"} )
-        <span class="pull-right">
-            @Html.ActionLink("Account", "../Users/Details", null, new { @class = "btn btn-info" }) |
-            @Html.ActionLink("LogOut", "../Users/LogOut", null, new { @class = "btn btn-info" })
-        </span>
-    </p>
-    <table class="table">
+<br />
+<p>
+    @Html.ActionLink("Create New Note", "Create", null, new { @class = "btn btn-primary" })
+    <span class="pull-right">
+        @Html.ActionLink("Account", "../Users/Details", null, new { @class = "btn btn-info" }) |
+        @Html.ActionLink("LogOut", "../Users/LogOut", null, new { @class = "btn btn-info" })
+    </span>
+</p>
+<table class="table">
+    <tr>
+        <th>Created/Edited</th>
+        <th>Owner</th>
+        <th>Title</th>
+        <th>Text data</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>Created/Edited</th>
-            <th>Owner</th>
-            <th>Title</th>
-            <th>Text data</th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td width="15%" >
+            <td width="15%">
                 @Html.DisplayFor(modelItem => item.Created_Edited)
             </td>
             <td width="10%">
@@ -41,8 +40,8 @@
             </td>
         </tr>
     }
-    </table>
-<br/>
+</table>
+<br />
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page } ))
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 

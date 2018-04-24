@@ -1,29 +1,35 @@
 ﻿@model WebNotesDataBase.ViewModels.RegisterUserViewModel
 
     <div>
-        <h2>@Html.DisplayFor(model => model.NameAuthor)</h2>
+        <h2>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h2>
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.NameAuthor)
+                @Html.DisplayNameFor(model => model.FirstName)
             </dt>
-    
+
             <dd>
-                @Html.DisplayFor(model => model.NameAuthor)
+                @Html.DisplayFor(model => model.FirstName)
             </dd>
-    
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
             <dt>
                 @Html.DisplayNameFor(model => model.Birthday)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Birthday)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Email)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Email)
             </dd>

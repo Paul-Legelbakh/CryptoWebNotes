@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
@@ -27,7 +28,7 @@ namespace WebNotes.Controllers
             userRepository = uowUser.unitOfWork.EntityRepository;
         }
 
-        // GET: Users
+        // GET Users
         public ActionResult Registration()
         {
             return View();
@@ -38,6 +39,7 @@ namespace WebNotes.Controllers
             return View();
         }
 
+        //POST Cookies User | Delete
         [HttpGet]
         public ActionResult LogOut()
         {
@@ -50,6 +52,7 @@ namespace WebNotes.Controllers
             return RedirectToAction("../Users/Login");
         }
 
+        //POST User | Authorization
         [HttpPost]
         public ActionResult Login(string email, string pass)
         {
@@ -71,17 +74,19 @@ namespace WebNotes.Controllers
             }
         }
 
-        // POST: Users/Create
-        //registration
+        // POST Create Users | Registration
         [HttpPost]
+        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Create(RegisterUserViewModel model)
         {
             if (ModelState.IsValid && uowUser.GetByEmail(EncryptDecrypt.EncryptData(model.Email, model.Pass)) == null)
             {
                 var user = Mapper.Map<RegisterUserViewModel, User>(model);
-                user.NameAuthor = EncryptDecrypt.EncryptData(user.NameAuthor, user.Pass);
+                user.FirstName = EncryptDecrypt.EncryptData(user.FirstName, user.Pass);
+                user.LastName = EncryptDecrypt.EncryptData(user.LastName, user.Pass);
                 user.Email = EncryptDecrypt.EncryptData(user.Email, user.Pass);
+                user.ConfirmEmail = false;
                 userRepository.Insert(user);
                 userRepository.Save();
                 return RedirectToAction("Login");
@@ -101,7 +106,8 @@ namespace WebNotes.Controllers
             if(ModelState.IsValid)
             {
                 loginUser = userRepository.GetByID(id);
-                loginUser.NameAuthor = EncryptDecrypt.DecryptData(loginUser.NameAuthor, loginUser.Pass);
+                loginUser.FirstName = EncryptDecrypt.DecryptData(loginUser.FirstName, loginUser.Pass);
+                loginUser.LastName = EncryptDecrypt.DecryptData(loginUser.LastName, loginUser.Pass);
                 loginUser.Email = EncryptDecrypt.DecryptData(loginUser.Email, loginUser.Pass);
                 userRepository.Save();
                 return View("Index", loginUser);
@@ -109,7 +115,7 @@ namespace WebNotes.Controllers
             return RedirectToAction("Login");
         }
 
-        //GET: Users/Details/5
+        //GET Users Details
         public ActionResult Details()
         {
             RegisterUserViewModel user = null;
@@ -117,7 +123,8 @@ namespace WebNotes.Controllers
             {
                 int id = Convert.ToInt32(Request.Cookies["login"].Value);
                 user = Mapper.Map<User, RegisterUserViewModel>(userRepository.GetByID(id));
-                user.NameAuthor = EncryptDecrypt.DecryptData(user.NameAuthor, user.Pass);
+                user.FirstName = EncryptDecrypt.DecryptData(user.FirstName, user.Pass);
+                user.LastName = EncryptDecrypt.DecryptData(user.LastName, user.Pass);
                 user.Email = EncryptDecrypt.DecryptData(user.Email, user.Pass);
             }
             if (user == null)
@@ -128,7 +135,7 @@ namespace WebNotes.Controllers
         }
 
 
-        // GET: Users/Edit/5
+        // GET Users Edit
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -136,7 +143,8 @@ namespace WebNotes.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var user = Mapper.Map<User, EditUserViewModel>(userRepository.GetByID(id));
-            user.NameAuthor = EncryptDecrypt.DecryptData(user.NameAuthor, user.Pass);
+            user.FirstName = EncryptDecrypt.DecryptData(user.FirstName, user.Pass);
+            user.LastName = EncryptDecrypt.DecryptData(user.LastName, user.Pass);
             if (user == null)
             {
                 return HttpNotFound();
@@ -144,7 +152,7 @@ namespace WebNotes.Controllers
             return View(user);
         }
 
-        // POST: Users/Edit/5
+        // POST Users Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(EditUserViewModel model)
@@ -153,7 +161,8 @@ namespace WebNotes.Controllers
             {
                 User user = Mapper.Map<EditUserViewModel, User>(model);
                 User usr = userRepository.GetByID(user.UserId);
-                usr.NameAuthor = EncryptDecrypt.EncryptData(user.NameAuthor, user.Pass);
+                usr.FirstName = EncryptDecrypt.EncryptData(user.FirstName, user.Pass);
+                usr.LastName = EncryptDecrypt.EncryptData(user.LastName, user.Pass);
                 usr.Birthday = user.Birthday;
                 usr.Email = EncryptDecrypt.EncryptData(user.Email, user.Pass);
                 usr.Pass = user.Pass;

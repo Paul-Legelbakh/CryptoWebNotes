@@ -214,6 +214,14 @@
     <Compile Include="Migrations\201802051540527_WebNotesDataBaseMigration.Designer.cs">
       <DependentUpon>201802051540527_WebNotesDataBaseMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804241117439_MigrateWebNotesDataBase8.cs" />
+    <Compile Include="Migrations\201804241117439_MigrateWebNotesDataBase8.Designer.cs">
+      <DependentUpon>201804241117439_MigrateWebNotesDataBase8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804241133496_MigrateWebNotesDataBase9.cs" />
+    <Compile Include="Migrations\201804241133496_MigrateWebNotesDataBase9.Designer.cs">
+      <DependentUpon>201804241133496_MigrateWebNotesDataBase9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Note.cs" />
     <Compile Include="Models\User.cs" />
@@ -320,6 +328,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802051540527_WebNotesDataBaseMigration.resx">
       <DependentUpon>201802051540527_WebNotesDataBaseMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804241117439_MigrateWebNotesDataBase8.resx">
+      <DependentUpon>201804241117439_MigrateWebNotesDataBase8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804241133496_MigrateWebNotesDataBase9.resx">
+      <DependentUpon>201804241133496_MigrateWebNotesDataBase9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

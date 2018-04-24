@@ -19,13 +19,12 @@ namespace WebNotes.Controllers
 {
     public class NotesController : Controller
     {
-        //create new connections of database
-        // GET: Notes
         private UserRepository uowUser;
         private NoteRepository uowNote;
         public GenericRepository<Note> noteRepository;
         public GenericRepository<User> userRepository;
 
+        // GET Notes | Create new connections of database
         public NotesController()
         {
             uowUser = new UserRepository();
@@ -53,7 +52,7 @@ namespace WebNotes.Controllers
             else return RedirectToAction("../Users/Login");
         }
 
-        // GET: Notes/Details/5
+        // GET Notes Details
         public ActionResult Details(int? id)
         {
             IndexNoteViewModel note = null;
@@ -81,13 +80,13 @@ namespace WebNotes.Controllers
             return View(note);
         }
 
-        // GET: Notes/Create
+        // GET Notes Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Notes/Create
+        // POST Notes Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateNoteViewModel model)
@@ -116,7 +115,7 @@ namespace WebNotes.Controllers
             return View(model);
         }
 
-        // GET: Notes/Edit/5
+        // GET Notes Edit
         public ActionResult Edit(int? id)
         {
             CreateNoteViewModel note = null;
@@ -143,7 +142,7 @@ namespace WebNotes.Controllers
             return View(note);
         }
 
-        // POST: Notes/Edit/5
+        // POST Notes Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(CreateNoteViewModel model)
@@ -171,7 +170,7 @@ namespace WebNotes.Controllers
             return View(model);
         }
 
-        // GET: Notes/Delete/5
+        // GET Notes Delete
         public ActionResult Delete(int? id)
         {
             IndexNoteViewModel note = null;
@@ -199,7 +198,7 @@ namespace WebNotes.Controllers
             return View(note);
         }
 
-        // POST: Notes/Delete/5
+        // POST Notes Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

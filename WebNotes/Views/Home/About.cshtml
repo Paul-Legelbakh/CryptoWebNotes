@@ -1,10 +1,37 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-@{ 
-    ViewBag.Message = "Mein name ist Paul Legelbach. Ich bin ein Einstiegs-Programmierer";
+@{
+    //ViewBag.Message = "Mein name ist Paul Legelbach. Ich bin ein Einstiegs-Programmierer";
+    ViewBag.Message = "Terminology";
 }
 <h2>@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
+Cryptography (from other Greek - κρυπτός - hidden and γράφω - I write) - the science of methods of securing confidentiality (the impossibility of reading information to outsiders), the integrity of data (the impossibility of imperceptible change of information), authentication (authentication of authorship or other properties of the object), and also the impossibility of refusal of authorship.
 
-<p>Created by Gott</p>
+<br />Initially, cryptography studied methods of information encryption - a reversible transformation of open (source) text based on a secret algorithm or key into encrypted text (ciphertext). Traditional cryptography forms a division of symmetric cryptosystems, in which encryption and decryption is carried out using the same secret key. In addition to this section, modern cryptography includes asymmetric cryptosystems, electronic digital signature (EDS) systems, hash functions, key management, receipt of hidden information, and quantum cryptography.
+
+<br />Cryptography does not deal with protection from fraud, bribery or blackmail of legitimate subscribers, theft of keys and other information threats that arise in secure data transmission systems.
+
+<br />Cryptography is one of the oldest sciences, its history dates back several thousand years.
+<h3>@ViewBag.Message</h3>
+Open (source) text - data (not necessarily textual) transmitted without the use of cryptography.
+Ciphertext, encrypted (closed) text - data obtained after applying the cryptosystem (usually - with some specified key).
+Cipher, cryptosystem - a family of reversible transformations, plaintext into encrypted.
+<br />Key - the parameter of the cipher, which determines the choice of a specific transformation of this text. In modern ciphers the cryptographic resistance of the cipher is entirely determined by the secrecy of the key (the Kerkhoffs principle).
+Encryption is the process of normal application of cryptographic transformation of text based on the algorithm and the key, as a result of which encrypted text appears.
+Decryption is the process of normal application of cryptographic transformation of encrypted text into an open text.
+Asymmetric cipher, two-key cipher, public key cipher - a cipher, which uses two keys, encrypting and decrypting. In this case, knowing only the encryption key, you can not decrypt the message, and vice versa.
+The public key is that of two keys of an asymmetric system, which is free person. Encrypting for secret correspondence and decrypting - for electronic signature.
+The secret key, the private key, is one of the two keys of an asymmetric system that is kept secret.
+<br />Cryptanalysis is a science that studies mathematical methods of violating the confidentiality and integrity of information.
+A cryptanalyst is a scientist who creates and applies cryptanalysis methods.
+<br />Cryptography and cryptanalysis constitute cryptology as a unified science of creating and cracking ciphers (this division was introduced from the west, before that there was no special division in the USSR and Russia).
+Cryptographic attack - an attempt by the cryptanalyst to cause deviations in the attacked protected information. A successful cryptographic attack is called hacking or autopsy.
+Decryption (decryption) is a process from an open plaintext without knowing the cryptographic key based on the well-known encrypted key. The term decryption is usually applied to the ciphertext cryptanalysis process (cryptanalysis itself, in general, can also be discussed in the analysis of a cryptosystem, and not just an encrypted naked message).
+Cryptographic stability is the ability of a cryptographic algorithm to withstand cryptanalysis.
+Imitosecurity is a defense against the imposition of false information. In other words, the text remains open, but it becomes possible to verify that it has not been altered either accidentally or intentionally. Imitoprotection, as a rule, due to the inclusion in the packet of transmitted data imitavka.
+Imitovstavka is a block of information used for imitation protection, depending on the key and data.
+<br />Electronic digital signature, or electronic signature - asymmetric imitation (the security key is different from the verification key). In other words, such imitoveshka, which the examiner can not forge.
+<br />The certification authority is a party whose honesty is undeniable, and the public key is widely known. The electronic signature of the certification authority confirms the authenticity of the key.
+<br />A hash function is a function that converts a message of arbitrary length into a number ("convolution") of a fixed length. For a cryptographic hash function (unlike a general hash function), it is difficult to compute the reverse function and even find two messages with a common hash function.
+<p><h3>Created by NVTechnologies</h3></p>
