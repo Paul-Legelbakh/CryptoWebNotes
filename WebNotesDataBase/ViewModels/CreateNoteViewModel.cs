@@ -12,10 +12,10 @@ namespace WebNotesDataBase.ViewModels
         public int NoteId { get; set; }
         public DateTime? EditedDate { get; set; }
         [Required]
-        [StringLength(50, MinimumLength = 5)]
+        [StringLength(50, MinimumLength = 4)]
         public string Label { get; set; }
         [Required]
-        [StringLength(5000, MinimumLength = 10)]
+        [StringLength(4000, MinimumLength = 10)]
         public string Body { get; set; }
         public int UserId { get; set; }
     }

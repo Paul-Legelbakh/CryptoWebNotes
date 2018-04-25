@@ -1,21 +1,22 @@
 ﻿@model PagedList.IPagedList<WebNotesDataBase.ViewModels.IndexNoteViewModel>
-@*@model WebNotesDataBase.DAL.NotesModel*@
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css">
 <br />
+<div class="jumbotron">
+    <h2>The list of a Notes</h2>
+</div>
 <p>
-    @Html.ActionLink("Create New Note", "Create", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Create New Note", "Create", null, new { @class = "btn btn-success" })
     <span class="pull-right">
-        @Html.ActionLink("Account", "../Users/Details", null, new { @class = "btn btn-info" }) |
-        @Html.ActionLink("LogOut", "../Users/LogOut", null, new { @class = "btn btn-info" })
+        @Html.ActionLink("Account", "../Users/Details", null, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("LogOut", "../Users/LogOut", null, new { @class = "btn btn-primary" })
     </span>
 </p>
-<table class="table">
+<table class="table indexelements">
     <tr>
         <th>Created/Edited</th>
         <th>Owner</th>
         <th>Title</th>
-        <th>Text data</th>
         <th></th>
     </tr>
     @foreach (var item in Model)
@@ -24,18 +25,15 @@
             <td width="15%">
                 @Html.DisplayFor(modelItem => item.Created_Edited)
             </td>
-            <td width="10%">
+            <td width="15%">
                 @Html.DisplayFor(modelItem => item.NameAuthor)
             </td>
-            <td width="15%">
+            <td width="40%">
                 @Html.DisplayFor(modelItem => item.Label)
             </td>
-            <td width="35%">
-                @Html.DisplayFor(modelItem => item.Body)
-            </td>
             <td width="20%">
+                @Html.ActionLink("Open", "Details", new { id = item.NoteId }, new { @class = "btn btn-info" }) |
                 @Html.ActionLink("Edit", "Edit", new { id = item.NoteId }, new { @class = "btn btn-warning" }) |
-                @Html.ActionLink("Details", "Details", new { id = item.NoteId }, new { @class = "btn btn-info" }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.NoteId }, new { @class = "btn btn-danger" })
             </td>
         </tr>

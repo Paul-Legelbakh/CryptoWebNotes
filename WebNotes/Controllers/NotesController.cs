@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -88,6 +89,7 @@ namespace WebNotes.Controllers
 
         // POST Notes Create
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateNoteViewModel model)
         {
@@ -101,6 +103,7 @@ namespace WebNotes.Controllers
                     note.EditedDate = DateTime.Now;
                     note.UserId = usr.UserId;
                     note.Label = EncryptDecrypt.EncryptData(note.Label, usr.Pass);
+                    //note.Body = BBCode.ToHtml(note.Body);
                     note.Body = EncryptDecrypt.EncryptData(note.Body, usr.Pass);
                     noteRepository.Insert(note);
                     noteRepository.Save();
@@ -144,6 +147,7 @@ namespace WebNotes.Controllers
 
         // POST Notes Edit
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(CreateNoteViewModel model)
         {
@@ -156,6 +160,7 @@ namespace WebNotes.Controllers
                     Note nt = noteRepository.GetByID(note.NoteId);
                     nt.EditedDate = DateTime.Now;
                     nt.Label = EncryptDecrypt.EncryptData(note.Label, usr.Pass);
+                    //note.Body = BBCode.ToHtml(note.Body);
                     nt.Body = EncryptDecrypt.EncryptData(note.Body, usr.Pass);
                     noteRepository.Update(nt);
                     noteRepository.Save();
