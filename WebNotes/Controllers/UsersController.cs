@@ -86,6 +86,7 @@ namespace WebNotes.Controllers
                 user.FirstName = EncryptDecrypt.EncryptData(user.FirstName, user.Pass);
                 user.LastName = EncryptDecrypt.EncryptData(user.LastName, user.Pass);
                 user.Email = EncryptDecrypt.EncryptData(user.Email, user.Pass);
+                user.Birthday = EncryptDecrypt.EncryptData(user.Birthday, user.Pass);
                 user.ConfirmEmail = false;
                 userRepository.Insert(user);
                 userRepository.Save();
@@ -109,6 +110,7 @@ namespace WebNotes.Controllers
                 loginUser.FirstName = EncryptDecrypt.DecryptData(loginUser.FirstName, loginUser.Pass);
                 loginUser.LastName = EncryptDecrypt.DecryptData(loginUser.LastName, loginUser.Pass);
                 loginUser.Email = EncryptDecrypt.DecryptData(loginUser.Email, loginUser.Pass);
+                loginUser.Birthday = EncryptDecrypt.DecryptData(loginUser.Birthday, loginUser.Pass);
                 userRepository.Save();
                 return View("Index", loginUser);
             }
@@ -126,6 +128,7 @@ namespace WebNotes.Controllers
                 user.FirstName = EncryptDecrypt.DecryptData(user.FirstName, user.Pass);
                 user.LastName = EncryptDecrypt.DecryptData(user.LastName, user.Pass);
                 user.Email = EncryptDecrypt.DecryptData(user.Email, user.Pass);
+                user.Birthday = EncryptDecrypt.DecryptData(user.Birthday, user.Pass);
             }
             if (user == null)
             {
@@ -145,6 +148,7 @@ namespace WebNotes.Controllers
             var user = Mapper.Map<User, EditUserViewModel>(userRepository.GetByID(id));
             user.FirstName = EncryptDecrypt.DecryptData(user.FirstName, user.Pass);
             user.LastName = EncryptDecrypt.DecryptData(user.LastName, user.Pass);
+            user.Birthday = EncryptDecrypt.DecryptData(user.Birthday, user.Pass);
             if (user == null)
             {
                 return HttpNotFound();
@@ -161,11 +165,9 @@ namespace WebNotes.Controllers
             {
                 User user = Mapper.Map<EditUserViewModel, User>(model);
                 User usr = userRepository.GetByID(user.UserId);
-                usr.FirstName = EncryptDecrypt.EncryptData(user.FirstName, user.Pass);
-                usr.LastName = EncryptDecrypt.EncryptData(user.LastName, user.Pass);
-                usr.Birthday = user.Birthday;
-                usr.Email = EncryptDecrypt.EncryptData(user.Email, user.Pass);
-                usr.Pass = user.Pass;
+                usr.FirstName = EncryptDecrypt.EncryptData(user.FirstName, usr.Pass);
+                usr.LastName = EncryptDecrypt.EncryptData(user.LastName, usr.Pass);
+                usr.Birthday = EncryptDecrypt.EncryptData(user.Birthday, usr.Pass);
                 userRepository.Update(usr);
                 userRepository.Save();
             }

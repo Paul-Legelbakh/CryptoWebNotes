@@ -14,6 +14,7 @@ namespace WebNotesDataBase.Models
         public DateTime? CreatedDate { get; set; }
         public DateTime? EditedDate { get; set; }
         public string Label { get; set; }
+        [DataType(DataType.Text)]
         public string Body { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }

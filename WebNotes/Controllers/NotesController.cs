@@ -103,7 +103,6 @@ namespace WebNotes.Controllers
                     note.EditedDate = DateTime.Now;
                     note.UserId = usr.UserId;
                     note.Label = EncryptDecrypt.EncryptData(note.Label, usr.Pass);
-                    //note.Body = BBCode.ToHtml(note.Body);
                     note.Body = EncryptDecrypt.EncryptData(note.Body, usr.Pass);
                     noteRepository.Insert(note);
                     noteRepository.Save();
@@ -160,7 +159,6 @@ namespace WebNotes.Controllers
                     Note nt = noteRepository.GetByID(note.NoteId);
                     nt.EditedDate = DateTime.Now;
                     nt.Label = EncryptDecrypt.EncryptData(note.Label, usr.Pass);
-                    //note.Body = BBCode.ToHtml(note.Body);
                     nt.Body = EncryptDecrypt.EncryptData(note.Body, usr.Pass);
                     noteRepository.Update(nt);
                     noteRepository.Save();
