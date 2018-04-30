@@ -436,3 +436,5 @@ C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Mi
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Migrations.MigrateWebNotesDataBase9.resources
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Migrations.MigrateWebNotesDataBase10.resources
 C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Migrations.MigrateWebNotesDataBase11.resources
+C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Migrations.MigrateWebNotesDataBase12.resources
+C:\Users\Paul\VSProjects\WebNotes\WebNotesDataBase\obj\Debug\WebNotesDataBase.Migrations.MigrateWebNotesDataBase13.resources

@@ -36,6 +36,14 @@
             <dd>
                 @Html.DisplayFor(model => model.Email)
             </dd>
+            
+            <dt>
+                @Html.DisplayNameFor(model => model.About)
+            </dt>
+
+            <dd>
+                @Html.Raw(Model.About)
+            </dd>
         </dl>
     </div>
     <p>

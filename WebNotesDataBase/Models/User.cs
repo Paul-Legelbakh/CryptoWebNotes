@@ -21,6 +21,7 @@ namespace WebNotesDataBase.Models
         public string Email { get; set; }
         public bool ConfirmEmail { get; set; }
         public string Pass { get; set; }
+        public string About { get; set; }
         public ICollection<Note> Notes { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -9,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebNotes.Crypt;
@@ -34,6 +34,28 @@ namespace WebNotes.Controllers
             userRepository = uowUser.unitOfWork.EntityRepository;
         }
 
+        [HttpPost]
+        public ActionResult NoteSearch(string searchCondition)
+        {
+            if (Request.Cookies["login"] != null)
+            {
+                User usr = userRepository.GetByID(Convert.ToInt64(Request.Cookies["login"].Value));
+                var notes = Mapper.Map<IEnumerable<Note>, List<IndexNoteViewModel>>(uowNote.GetListByUserID(Convert.ToInt32(usr.UserId)));
+                foreach (IndexNoteViewModel note in notes)
+                {
+                    note.Label = EncryptDecrypt.DecryptData(note.Label, usr.Pass);
+                    note.NameAuthor = EncryptDecrypt.DecryptData(note.NameAuthor, usr.Pass);
+                }
+                var decNotes = notes.Where(a => a.Label.Contains(searchCondition)).ToList();
+                if (decNotes.Count <= 0)
+                {
+                    return HttpNotFound();
+                }
+                return View("Index", decNotes);
+            }
+            else return RedirectToAction("../Users/Login");
+        }
+
         public ActionResult Index(int? page)
         {
             int pageSize = 10;
@@ -45,7 +67,6 @@ namespace WebNotes.Controllers
                 foreach (IndexNoteViewModel note in notes)
                 {
                     note.Label = EncryptDecrypt.DecryptData(note.Label, usr.Pass);
-                    note.Body = EncryptDecrypt.DecryptData(note.Body, usr.Pass);
                     note.NameAuthor = EncryptDecrypt.DecryptData(note.NameAuthor, usr.Pass);
                 }
                 return View(notes.ToPagedList(pageNumber, pageSize));

@@ -111,6 +111,10 @@ namespace WebNotes.Controllers
                 loginUser.LastName = EncryptDecrypt.DecryptData(loginUser.LastName, loginUser.Pass);
                 loginUser.Email = EncryptDecrypt.DecryptData(loginUser.Email, loginUser.Pass);
                 loginUser.Birthday = EncryptDecrypt.DecryptData(loginUser.Birthday, loginUser.Pass);
+                if (loginUser.About != null && loginUser.About != "")
+                {
+                    loginUser.About = EncryptDecrypt.DecryptData(loginUser.About, loginUser.Pass);
+                }
                 userRepository.Save();
                 return View("Index", loginUser);
             }
@@ -129,6 +133,10 @@ namespace WebNotes.Controllers
                 user.LastName = EncryptDecrypt.DecryptData(user.LastName, user.Pass);
                 user.Email = EncryptDecrypt.DecryptData(user.Email, user.Pass);
                 user.Birthday = EncryptDecrypt.DecryptData(user.Birthday, user.Pass);
+                if (user.About != null && user.About != "")
+                {
+                    user.About = EncryptDecrypt.DecryptData(user.About, user.Pass);
+                }
             }
             if (user == null)
             {
@@ -149,6 +157,10 @@ namespace WebNotes.Controllers
             user.FirstName = EncryptDecrypt.DecryptData(user.FirstName, user.Pass);
             user.LastName = EncryptDecrypt.DecryptData(user.LastName, user.Pass);
             user.Birthday = EncryptDecrypt.DecryptData(user.Birthday, user.Pass);
+            if (user.About != null && user.About != "")
+            {
+                user.About = EncryptDecrypt.EncryptData(user.About, user.Pass);
+            }
             if (user == null)
             {
                 return HttpNotFound();
@@ -158,20 +170,22 @@ namespace WebNotes.Controllers
 
         // POST Users Edit
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(EditUserViewModel model)
         {
-            if (ModelState.IsValid)
+            User user = Mapper.Map<EditUserViewModel, User>(model);
+            User usr = userRepository.GetByID(user.UserId);
+            usr.FirstName = EncryptDecrypt.EncryptData(user.FirstName, usr.Pass);
+            usr.LastName = EncryptDecrypt.EncryptData(user.LastName, usr.Pass);
+            usr.Birthday = EncryptDecrypt.EncryptData(user.Birthday, usr.Pass);
+            if (user.About != null && user.About != "")
             {
-                User user = Mapper.Map<EditUserViewModel, User>(model);
-                User usr = userRepository.GetByID(user.UserId);
-                usr.FirstName = EncryptDecrypt.EncryptData(user.FirstName, usr.Pass);
-                usr.LastName = EncryptDecrypt.EncryptData(user.LastName, usr.Pass);
-                usr.Birthday = EncryptDecrypt.EncryptData(user.Birthday, usr.Pass);
-                userRepository.Update(usr);
-                userRepository.Save();
+                usr.About = EncryptDecrypt.EncryptData(user.About, usr.Pass);
             }
-            return View(model);
+            userRepository.Update(usr);
+            userRepository.Save();
+            return RedirectToAction("../Notes/Index");
         }
     }
 }

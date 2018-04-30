@@ -5,6 +5,14 @@
 <div class="jumbotron">
     <h2>The list of a Notes</h2>
 </div>
+@*<div>
+    @using (Ajax.BeginForm("NoteSearch", new AjaxOptions { UpdateTargetId = "results" }))
+    {
+        <input type="text" name="name" />
+        <input type="submit" value="Search" />
+    }
+    <div id="results"></div>
+</div>*@
 <p>
     @Html.ActionLink("Create New Note", "Create", null, new { @class = "btn btn-success" })
     <span class="pull-right">
@@ -12,34 +20,34 @@
         @Html.ActionLink("LogOut", "../Users/LogOut", null, new { @class = "btn btn-primary" })
     </span>
 </p>
-<table class="table indexelements">
-    <tr>
-        <th>Created/Edited</th>
-        <th>Owner</th>
-        <th>Title</th>
-        <th></th>
-    </tr>
-    @foreach (var item in Model)
-    {
+    <table class="table indexelements">
         <tr>
-            <td width="15%">
-                @Html.DisplayFor(modelItem => item.Created_Edited)
-            </td>
-            <td width="15%">
-                @Html.DisplayFor(modelItem => item.NameAuthor)
-            </td>
-            <td width="40%">
-                @Html.DisplayFor(modelItem => item.Label)
-            </td>
-            <td width="17.4%">
-                @Html.ActionLink("Open", "Details", new { id = item.NoteId }, new { @class = "btn btn-info" }) |
-                @Html.ActionLink("Edit", "Edit", new { id = item.NoteId }, new { @class = "btn btn-warning" }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.NoteId }, new { @class = "btn btn-danger" })
-            </td>
+            <th>Created/Edited</th>
+            <th>Owner</th>
+            <th>Title</th>
+            <th></th>
         </tr>
-    }
-</table>
-<br />
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td width="15%">
+                    @Html.DisplayFor(modelItem => item.Created_Edited)
+                </td>
+                <td width="15%">
+                    @Html.DisplayFor(modelItem => item.NameAuthor)
+                </td>
+                <td width="40%">
+                    @Html.DisplayFor(modelItem => item.Label)
+                </td>
+                <td width="17.4%">
+                    @Html.ActionLink("Open", "Details", new { id = item.NoteId }, new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.NoteId }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.NoteId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 

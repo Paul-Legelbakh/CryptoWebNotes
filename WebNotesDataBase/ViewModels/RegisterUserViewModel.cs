@@ -21,6 +21,9 @@ namespace WebNotesDataBase.ViewModels
 
         public string Birthday { get; set; }
 
+        [StringLength(4000, MinimumLength = 0)]
+        public string About { get; set; }
+
         [Required]
         [StringLength(40, MinimumLength = 6)]
         public string Email { get; set; }

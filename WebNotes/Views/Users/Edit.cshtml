@@ -36,6 +36,17 @@
     </div>
 
     <div class="form-group">
+        @Html.LabelFor(model => model.About, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.About, new { @id = "FullDescription", @class = "form-control", @rows = 200 })
+            @Html.ValidationMessageFor(model => model.About, "", new { @class = "text-danger" })
+            <script>
+                CKEDITOR.replace("FullDescription");
+            </script>
+        </div>
+    </div>
+
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Save" class="btn btn-success" />
         </div>

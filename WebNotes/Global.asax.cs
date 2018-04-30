@@ -31,7 +31,7 @@ namespace WebNotes
                 {
                     cfg.CreateMap<Note, IndexNoteViewModel>()
                         .ForMember("NameAuthor", opt => opt.MapFrom(n => n.User.FirstName))
-                        .ForMember("Created_Edited", opt => opt.MapFrom(d => d.CreatedDate + " " + d.EditedDate));
+                        .ForMember("Created_Edited", opt => opt.MapFrom(d => d.CreatedDate + " | " + d.EditedDate));
                     cfg.CreateMap<CreateNoteViewModel, Note>();
                     cfg.CreateMap<Note, CreateNoteViewModel>();
                     cfg.CreateMap<User, EditUserViewModel>();
