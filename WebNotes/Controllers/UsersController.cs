@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebNotes.Crypt;
@@ -69,14 +70,13 @@ namespace WebNotes.Controllers
             }
             else
             {
-                ViewBag.ErrorLogin = "Data not found";
+                ViewBag.ErrorLogin = "User data not found";
                 return View("Login");
             }
         }
 
         // POST Create Users | Registration
         [HttpPost]
-        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Create(RegisterUserViewModel model)
         {
@@ -94,7 +94,7 @@ namespace WebNotes.Controllers
             }
             else
             {
-                ViewBag.ErrorRegistration = "This email is already registered";
+                ViewBag.ErrorRegistration = "This email address is already registered";
                 return View("Registration");
             }
         }
@@ -159,7 +159,7 @@ namespace WebNotes.Controllers
             user.Birthday = EncryptDecrypt.DecryptData(user.Birthday, user.Pass);
             if (user.About != null && user.About != "")
             {
-                user.About = EncryptDecrypt.EncryptData(user.About, user.Pass);
+                user.About = EncryptDecrypt.DecryptData(user.About, user.Pass);
             }
             if (user == null)
             {

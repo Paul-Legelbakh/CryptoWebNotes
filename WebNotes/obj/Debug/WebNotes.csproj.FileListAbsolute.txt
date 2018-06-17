@@ -454,3 +454,8 @@ C:\Users\Paul\VSProjects\WebNotes\WebNotes\obj\Debug\WebNotes.csprojResolveAssem
 C:\Users\Paul\VSProjects\WebNotes\WebNotes\obj\Debug\WebNotes.csproj.CoreCompileInputs.cache
 C:\Users\Paul\VSProjects\WebNotes\WebNotes\obj\Debug\WebNotes.dll
 C:\Users\Paul\VSProjects\WebNotes\WebNotes\obj\Debug\WebNotes.pdb
+C:\Users\Paul\VSProjects\WebNotes\WebNotes\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Paul\VSProjects\WebNotes\WebNotes\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Paul\VSProjects\WebNotes\WebNotes\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Paul\VSProjects\WebNotes\WebNotes\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Paul\VSProjects\WebNotes\WebNotes\bin\nunit.framework.pdb

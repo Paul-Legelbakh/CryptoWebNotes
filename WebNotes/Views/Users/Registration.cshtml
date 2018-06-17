@@ -5,12 +5,14 @@
         @Html.AntiForgeryToken()
         
 <div class="form-horizontal">
+    <br />
     <div class="jumbotron">
         <h2>Registration</h2>
     </div>
     <p>Registration is necessary to create a user profile whose password is its security system and is presented in the form of a visual key.</p>
     <p>When entering a password, you can rotate the key elements in any direction. You can drag and drop elements.</p>
     <p>Removal is carried out by interacting with a red square, by clicking on which delete</p>
+    <p><h3 style="color: red;">Warning! If you forget your password, you will not be able to recover your account</h3></p>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
