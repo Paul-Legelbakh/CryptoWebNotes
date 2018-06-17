@@ -34,9 +34,10 @@ namespace WebNotes.Controllers
             userRepository = uowUser.unitOfWork.EntityRepository;
         }
 
-        [HttpPost]
-        public ActionResult NoteSearch(string searchCondition)
+        public ActionResult NoteSearch(int? page, string searchCondition)
         {
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
             if (Request.Cookies["login"] != null)
             {
                 User usr = userRepository.GetByID(Convert.ToInt64(Request.Cookies["login"].Value));
@@ -49,9 +50,11 @@ namespace WebNotes.Controllers
                 var decNotes = notes.Where(a => a.Label.Contains(searchCondition)).ToList();
                 if (decNotes.Count <= 0)
                 {
-                    return HttpNotFound();
+                    ViewBag.NoteNotFound = "Notes with this value is not found!";
+                    return View("Index", notes.ToPagedList(pageNumber, pageSize));
                 }
-                return View("Index", decNotes);
+                if (searchCondition == null) return RedirectToAction("Index");
+                return View("Index", decNotes.ToPagedList(pageNumber, pageSize));
             }
             else return RedirectToAction("../Users/Login");
         }
