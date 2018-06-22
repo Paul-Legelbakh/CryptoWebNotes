@@ -1,51 +1,53 @@
 ﻿@model WebNotesDataBase.ViewModels.RegisterUserViewModel
 
-    <div>
-        <br />
-        <div class="jumbotron">
-        <h2>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h2>
-        </div>
-        <hr />
-        <dl class="dl-horizontal indexelements">
-            <dt>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.FirstName)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.LastName)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.LastName)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Birthday)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Birthday)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-            
-            <dt>
-                @Html.DisplayNameFor(model => model.About)
-            </dt>
-
-            <dd>
-                @Html.Raw(Model.About)
-            </dd>
-        </dl>
+<div>
+    <br />
+    <div style="margin-bottom: 5%;">
+        <ul id="menu">
+            <li style="float:left;"><a><span>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</span></a></li>
+        </ul>
     </div>
+    <hr />
+    <dl class="dl-horizontal indexelements">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.About)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.About)
+        </dd>
+    </dl>
+</div>
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }, new { @class = "btn btn-warning" }) |
         @Html.ActionLink("Back to List", "../Notes/Index", null, new { @class = "btn btn-info" })

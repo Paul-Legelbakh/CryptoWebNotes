@@ -6,7 +6,11 @@
         
 <div class="form-horizontal">
     <br />
-    <h2>Edit Note</h2>
+    <div style="margin-bottom: 5%;">
+        <ul id="menu">
+            <li style="float:left;"><a><span>Edit Note</span></a></li>
+        </ul>
+    </div>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.NoteId)

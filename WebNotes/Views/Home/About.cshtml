@@ -1,14 +1,31 @@
 ﻿@{
     ViewBag.Title = "About";
 }
+<br />
+<div style="margin-bottom: 5%;">
+    <ul id="menu">
+        <li style="float:left;"><a><span>@ViewBag.Title</span></a></li>
+    </ul>
+</div>
+<div class="col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">Contacts</h2>
+        </div>
+        <table class="table">
+            <tr><td>Name of Developer</td><td>© Paul Legelbakh</td></tr>
+            <tr><td>Project name</td><td>CryptoWebNotes</td></tr>
+            <tr><td>Phone</td><td>+38(068)738-20-82</td></tr>
+            <tr><td>Email</td><td>immortalis82@gmail.com</td></tr>
+            <tr><td>Skype</td><td>cool_man469</td></tr>
+            <tr><td>Instagram</td><td>pauli_lgb</td></tr>
+        </table>
+    </div>
+</div>
+
 @{
-    //ViewBag.Message = "Mein name ist Paul Legelbach. Ich bin ein Einstiegs-Programmierer";
     ViewBag.Message = "Terminology";
 }
-<br />
-<div class="jumbotron">
-    <h2>@ViewBag.Title</h2>
-</div>
 Cryptography (from other Greek - κρυπτός - hidden and γράφω - I write) - the science of methods of securing confidentiality (the impossibility of reading information to outsiders), the integrity of data (the impossibility of imperceptible change of information), authentication (authentication of authorship or other properties of the object), and also the impossibility of refusal of authorship.
 
 <br />Initially, cryptography studied methods of information encryption - a reversible transformation of open (source) text based on a secret algorithm or key into encrypted text (ciphertext). Traditional cryptography forms a division of symmetric cryptosystems, in which encryption and decryption is carried out using the same secret key. In addition to this section, modern cryptography includes asymmetric cryptosystems, electronic digital signature (EDS) systems, hash functions, key management, receipt of hidden information, and quantum cryptography.

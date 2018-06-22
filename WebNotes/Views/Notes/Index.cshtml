@@ -2,9 +2,11 @@
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css">
 <br />
-<div class="jumbotron">
-    <h2>The list of a Notes</h2>
-</div>
+    <div style="margin-bottom: 5%;">
+        <ul id="menu">
+            <li style="float:left;"><a><span>The list of a Notes</span></a></li>
+        </ul>
+    </div>
 <p>You can create and edit notes. After that its will be encrypted and saved in the database</p>
 <div class="form-group">
     @using (Html.BeginForm("NoteSearch", "Notes", FormMethod.Post))
@@ -15,7 +17,7 @@
             @Html.ActionLink("Account", "../Users/Details", null, new { @class = "btn btn-primary" }) |
             @Html.ActionLink("LogOut", "../Users/LogOut", null, new { @class = "btn btn-primary" })
         </span>
-        <div class="text-danger" style="font-size:20px; float: right; margin-right: 50px;">@ViewBag.NoteNotFound</div>
+        <div class="text-danger" style="font-size: 20px; float: right; margin-right: 50px;">@ViewBag.NoteNotFound</div>
     }
 </div>
 <p>
