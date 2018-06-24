@@ -8,6 +8,7 @@
         </ul>
     </div>
 <p>You can create and edit notes. After that its will be encrypted and saved in the database</p>
+
 <div class="form-group">
     @using (Html.BeginForm("NoteSearch", "Notes", FormMethod.Post))
     {
@@ -20,16 +21,19 @@
         <div class="text-danger" style="font-size: 20px; float: right; margin-right: 50px;">@ViewBag.NoteNotFound</div>
     }
 </div>
+
 <p>
     @Html.ActionLink("Create New Note", "Create", null, new { @class = "btn btn-success" })
 </p>
     <table class="table indexelements">
-        <tr>
-            <th>Created/Edited</th>
-            <th>Owner</th>
-            <th>Title</th>
-            <th></th>
-        </tr>
+        <thead>
+            <tr>
+                <th scope="col">Created/Edited</th>
+                <th scope="col">Owner</th>
+                <th scope="col">Title</th>
+                <th></th>
+            </tr>
+        </thead>
         @foreach (var item in Model)
         {
             <tr>
