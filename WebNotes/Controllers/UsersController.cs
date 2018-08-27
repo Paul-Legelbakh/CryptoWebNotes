@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -58,7 +59,7 @@ namespace WebNotes.Controllers
         public ActionResult Login(string email, string pass)
         {
             User auth = uowUser.GetByEmail(EncryptDecrypt.EncryptData(email, pass));
-            if(auth != null && auth.Pass == pass)
+            if(auth != null && auth.Pass == pass && auth.ConfirmEmail == true)
             {
                 var cookie = new HttpCookie("login")
                 {
@@ -70,13 +71,14 @@ namespace WebNotes.Controllers
             }
             else
             {
-                ViewBag.ErrorLogin = "User data not found";
+                ViewBag.ErrorLogin = "User data not found or not confirmed";
                 return View("Login");
             }
         }
 
         // POST Create Users | Registration
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Create(RegisterUserViewModel model)
         {
@@ -88,14 +90,47 @@ namespace WebNotes.Controllers
                 user.Email = EncryptDecrypt.EncryptData(user.Email, user.Pass);
                 user.Birthday = EncryptDecrypt.EncryptData(user.Birthday, user.Pass);
                 user.ConfirmEmail = false;
+                ////////////////////////////
+                MailAddress from = new MailAddress("immortalis82@gmail.com", "CryptoWebNotes Registration");
+                MailAddress to = new MailAddress(model.Email);
+                MailMessage m = new MailMessage(from, to);
+                m.Subject = "Email confirmation";
+                m.Body = string.Format("For registration click on the link:" +
+                                "<a href=\"{0}\" title=\"Confirm registration\">{0}</a>",
+                    Url.Action("ConfirmEmail", "Users", new { email = model.Email, pass = model.Pass }, Request.Url.Scheme));
+                m.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.UseDefaultCredentials = false;
+                smtp.EnableSsl = true;
+                smtp.Credentials = new NetworkCredential("immortalis82@gmail.com", /*"DANGERZONE"*/);
+                smtp.Send(m);
+                ///////////////////////////////
                 userRepository.Insert(user);
                 userRepository.Save();
-                return RedirectToAction("Login");
+                ViewBag.ErrorLogin = "Please, confirm your email address";
+                return View("Login");
             }
             else
             {
                 ViewBag.ErrorRegistration = "This email address is already registered";
                 return View("Registration");
+            }
+        }
+
+        [AllowAnonymous]
+        public ActionResult ConfirmEmail(string email, string pass)
+        {
+            User confirmUser = uowUser.GetByEmail(EncryptDecrypt.EncryptData(email, pass));
+            if (confirmUser != null && confirmUser.Pass == pass)
+            {
+                confirmUser.ConfirmEmail = true;
+                userRepository.Update(confirmUser);
+                return View("Login");
+            }
+            else
+            {
+                ViewBag.ErrorLogin = "Incorrect data";
+                return View("Login");
             }
         }
 

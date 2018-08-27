@@ -168,69 +168,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712151340563_InitialCreate.cs" />
-    <Compile Include="Migrations\201712151340563_InitialCreate.Designer.cs">
-      <DependentUpon>201712151340563_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801031619087_MigrateWebNotesDataBase.cs" />
-    <Compile Include="Migrations\201801031619087_MigrateWebNotesDataBase.Designer.cs">
-      <DependentUpon>201801031619087_MigrateWebNotesDataBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801041043479_MigrateWebNotesDataBase1.cs" />
-    <Compile Include="Migrations\201801041043479_MigrateWebNotesDataBase1.Designer.cs">
-      <DependentUpon>201801041043479_MigrateWebNotesDataBase1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801160954353_MigrateWebNotesDataBase3.cs" />
-    <Compile Include="Migrations\201801160954353_MigrateWebNotesDataBase3.Designer.cs">
-      <DependentUpon>201801160954353_MigrateWebNotesDataBase3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801161002316_MigrateWebNotesDataBase4.cs" />
-    <Compile Include="Migrations\201801161002316_MigrateWebNotesDataBase4.Designer.cs">
-      <DependentUpon>201801161002316_MigrateWebNotesDataBase4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801161014253_MigrateWebNotesDataBase5.cs" />
-    <Compile Include="Migrations\201801161014253_MigrateWebNotesDataBase5.Designer.cs">
-      <DependentUpon>201801161014253_MigrateWebNotesDataBase5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801161024112_MigrateWebNotesDataBase6.cs" />
-    <Compile Include="Migrations\201801161024112_MigrateWebNotesDataBase6.Designer.cs">
-      <DependentUpon>201801161024112_MigrateWebNotesDataBase6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801291015316_MigrateWebNotesDataBase2.cs" />
-    <Compile Include="Migrations\201801291015316_MigrateWebNotesDataBase2.Designer.cs">
-      <DependentUpon>201801291015316_MigrateWebNotesDataBase2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801291019223_MigrateWebNotesDataBase7.cs" />
-    <Compile Include="Migrations\201801291019223_MigrateWebNotesDataBase7.Designer.cs">
-      <DependentUpon>201801291019223_MigrateWebNotesDataBase7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802051540527_WebNotesDataBaseMigration.cs" />
-    <Compile Include="Migrations\201802051540527_WebNotesDataBaseMigration.Designer.cs">
-      <DependentUpon>201802051540527_WebNotesDataBaseMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804241117439_MigrateWebNotesDataBase8.cs" />
-    <Compile Include="Migrations\201804241117439_MigrateWebNotesDataBase8.Designer.cs">
-      <DependentUpon>201804241117439_MigrateWebNotesDataBase8.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804241133496_MigrateWebNotesDataBase9.cs" />
-    <Compile Include="Migrations\201804241133496_MigrateWebNotesDataBase9.Designer.cs">
-      <DependentUpon>201804241133496_MigrateWebNotesDataBase9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804260804164_MigrateWebNotesDataBase10.cs" />
-    <Compile Include="Migrations\201804260804164_MigrateWebNotesDataBase10.Designer.cs">
-      <DependentUpon>201804260804164_MigrateWebNotesDataBase10.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804260835456_MigrateWebNotesDataBase11.cs" />
-    <Compile Include="Migrations\201804260835456_MigrateWebNotesDataBase11.Designer.cs">
-      <DependentUpon>201804260835456_MigrateWebNotesDataBase11.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804261108401_MigrateWebNotesDataBase12.cs" />
-    <Compile Include="Migrations\201804261108401_MigrateWebNotesDataBase12.Designer.cs">
-      <DependentUpon>201804261108401_MigrateWebNotesDataBase12.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804301003512_MigrateWebNotesDataBase13.cs" />
-    <Compile Include="Migrations\201804301003512_MigrateWebNotesDataBase13.Designer.cs">
-      <DependentUpon>201804301003512_MigrateWebNotesDataBase13.cs</DependentUpon>
+    <Compile Include="Migrations\201806241700572_MigrateHostDataBase.cs" />
+    <Compile Include="Migrations\201806241700572_MigrateHostDataBase.Designer.cs">
+      <DependentUpon>201806241700572_MigrateHostDataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Note.cs" />
@@ -309,53 +249,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712151340563_InitialCreate.resx">
-      <DependentUpon>201712151340563_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801031619087_MigrateWebNotesDataBase.resx">
-      <DependentUpon>201801031619087_MigrateWebNotesDataBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801041043479_MigrateWebNotesDataBase1.resx">
-      <DependentUpon>201801041043479_MigrateWebNotesDataBase1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801160954353_MigrateWebNotesDataBase3.resx">
-      <DependentUpon>201801160954353_MigrateWebNotesDataBase3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801161002316_MigrateWebNotesDataBase4.resx">
-      <DependentUpon>201801161002316_MigrateWebNotesDataBase4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801161014253_MigrateWebNotesDataBase5.resx">
-      <DependentUpon>201801161014253_MigrateWebNotesDataBase5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801161024112_MigrateWebNotesDataBase6.resx">
-      <DependentUpon>201801161024112_MigrateWebNotesDataBase6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801291015316_MigrateWebNotesDataBase2.resx">
-      <DependentUpon>201801291015316_MigrateWebNotesDataBase2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801291019223_MigrateWebNotesDataBase7.resx">
-      <DependentUpon>201801291019223_MigrateWebNotesDataBase7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802051540527_WebNotesDataBaseMigration.resx">
-      <DependentUpon>201802051540527_WebNotesDataBaseMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804241117439_MigrateWebNotesDataBase8.resx">
-      <DependentUpon>201804241117439_MigrateWebNotesDataBase8.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804241133496_MigrateWebNotesDataBase9.resx">
-      <DependentUpon>201804241133496_MigrateWebNotesDataBase9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804260804164_MigrateWebNotesDataBase10.resx">
-      <DependentUpon>201804260804164_MigrateWebNotesDataBase10.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804260835456_MigrateWebNotesDataBase11.resx">
-      <DependentUpon>201804260835456_MigrateWebNotesDataBase11.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804261108401_MigrateWebNotesDataBase12.resx">
-      <DependentUpon>201804261108401_MigrateWebNotesDataBase12.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804301003512_MigrateWebNotesDataBase13.resx">
-      <DependentUpon>201804301003512_MigrateWebNotesDataBase13.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806241700572_MigrateHostDataBase.resx">
+      <DependentUpon>201806241700572_MigrateHostDataBase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

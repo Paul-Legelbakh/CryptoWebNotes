@@ -9,7 +9,7 @@ namespace WebNotesDataBase.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "WebNotesDataBase.Models.WebNotesContext";
         }
 
